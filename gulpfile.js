@@ -50,7 +50,7 @@ gulp.task('clean:build', function() { return del('dist/'); });
 
 gulp.task('ngc', function(cb) {
   var executable = path.join(__dirname, platformPath('/node_modules/.bin/ngc'));
-  exec(`${executable} -p ./tsconfig-es2015.json`, (e) => {
+  exec(`"${executable}" -p ./tsconfig-es2015.json`, (e) => {
     if (e) console.log(e);
     del('./dist/waste');
     cb();
@@ -156,7 +156,8 @@ function startKarmaServer(isTddMode, isSaucelabs, done) {
 gulp.task('clean:tests', function() { return del(['temp/', 'coverage/']); });
 
 gulp.task('build:tests', ['clean:tests'], (cb) => {
-  exec(path.join(__dirname, platformPath('/node_modules/.bin/tsc')), (e) => {
+  var executable = path.join(__dirname, platformPath('/node_modules/.bin/tsc'));
+  exec(`"${executable}"`, (e) => {
     if (e) console.log(e);
     cb();
   }).stdout.on('data', function(data) { console.log(data); });
@@ -180,7 +181,7 @@ gulp.task('tdd', ['clean:tests'], (cb) => {
   var executable = path.join(__dirname, platformPath('/node_modules/.bin/tsc'));
   var startedKarma = false;
 
-  exec(`${executable} -w`, (e) => {
+  exec(`"${executable}" -w`, (e) => {
     cb(e && e.signal !== 'SIGINT' ? e : undefined);
   }).stdout.on('data', function(data) {
 

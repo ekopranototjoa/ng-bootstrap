@@ -1,5 +1,5 @@
 {
-  "name": "ng-bootstrap",
+  "name": "@ng-bootstrap/ng-bootstrap",
   "version": "1.0.0-beta.6",
   "description": "Angular powered Bootstrap",
   "keywords": [
@@ -30,7 +30,6 @@
     "npm": ">=3.10.7 <4.0.0"
   },
   "scripts": {
-    "install": "node misc/validate-commit.install.js",
     "test": "gulp",
     "api-doc-tdd": "jasmine-node misc/api-doc.spec.js --autotest --watch misc/api-doc-test-cases/*.ts misc/api-doc.js",
     "api-doc-test": "jasmine-node misc/api-doc.spec.js"
@@ -65,7 +64,7 @@
     "angular2-template-loader": "^0.6.0",
     "async-done": "^1.2.2",
     "autoprefixer": "^6.5.1",
-    "bootstrap": "4.0.0-beta.2",
+    "bootstrap": "4.0.0",
     "clang-format": "1.0.35",
     "copy-webpack-plugin": "^4.0.0",
     "core-js": "^2.4.1",
